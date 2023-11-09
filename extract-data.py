@@ -64,4 +64,5 @@ df = pd.DataFrame(vis.data_extracted)
 
 df.to_csv('data.csv', index=False)
 
+print(df)
 

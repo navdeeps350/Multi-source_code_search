@@ -88,11 +88,16 @@ corpus_bow = [dictionary.doc2bow(text) for text in text_lower]
 
 tfidf = TfidfModel(corpus_bow)
 corpus_tfidf = tfidf[corpus_bow]
+index_tfidf = SparseMatrixSimilarity(corpus_tfidf, num_features=len(dictionary))
+
+
 lsi = LsiModel(corpus_tfidf, id2word=dictionary, num_topics=300)
 corpus_lsi = lsi[corpus_tfidf]
-
-index_tfidf = SparseMatrixSimilarity(tfidf[corpus_bow], num_features=len(dictionary))
 index_lsi = MatrixSimilarity(corpus_lsi)
+
+
+# index_tfidf = SparseMatrixSimilarity(tfidf[corpus_bow], num_features=len(dictionary))
+# index_lsi = MatrixSimilarity(corpus_lsi)
 index_bow = SparseMatrixSimilarity(corpus_bow, num_features=len(dictionary))
 
 
@@ -259,7 +264,7 @@ tsne_red = tsne.fit_transform(vect)
 scatter = plt.scatter(tsne_red[:, 0], tsne_red[:, 1], c = col_c )
 handles, _ = scatter.legend_elements(prop='colors')
 labels = ['q1', 'q2', 'q3', 'q4', 'q5', 'q6', 'q7', 'q8', 'q9', 'q10']
-plt.legend(handles, labels)
+plt.legend(handles, labels, loc='best')
 
 plt.show()
 
@@ -271,6 +276,6 @@ tsne_red_doc = tsne.fit_transform(np.array(inferred_vectors_doc2vec))
 scatter = plt.scatter(tsne_red_doc[:, 0], tsne_red_doc[:, 1], c = col_c )
 handles, _ = scatter.legend_elements(prop='colors')
 labels = ['q1', 'q2', 'q3', 'q4', 'q5', 'q6', 'q7', 'q8', 'q9', 'q10']
-plt.legend(handles, labels)
+plt.legend(handles, labels, loc='best')
 
 plt.show()
