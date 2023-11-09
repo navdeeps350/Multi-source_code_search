@@ -96,8 +96,6 @@ corpus_lsi = lsi[corpus_tfidf]
 index_lsi = MatrixSimilarity(corpus_lsi)
 
 
-# index_tfidf = SparseMatrixSimilarity(tfidf[corpus_bow], num_features=len(dictionary))
-# index_lsi = MatrixSimilarity(corpus_lsi)
 index_bow = SparseMatrixSimilarity(corpus_bow, num_features=len(dictionary))
 
 

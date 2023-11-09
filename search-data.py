@@ -94,8 +94,6 @@ index_lsi = MatrixSimilarity(corpus_lsi)
 index_bow = SparseMatrixSimilarity(corpus_bow, num_features=len(dictionary))
 
 
-# index_tfidf = SparseMatrixSimilarity(tfidf[corpus_bow], num_features=len(dictionary))
-
 query_bow = dictionary.doc2bow(query.lower().split())
 
 
@@ -114,21 +112,11 @@ for idx, score in sorted(enumerate(sims_tfidf), key=lambda x: x[1], reverse=True
     print(idx, score)
     print(df_3.iloc[idx])
 
-# vec_bow = dictionary.doc2bow(query.lower().split())
-# vec_lsi = lsi[tfidf[query_bow]]
-
-# index_lsi = MatrixSimilarity(corpus_lsi)
-# sims_lsi = index_lsi[lsi[tfidf[query_bow]]]
-# sims_lsi = abs(sims_lsi)
-
 
 print("Sorted by lsi scores")
 for idx, score in sorted(enumerate(sims_lsi), key=lambda x: x[1], reverse=True)[:5]:
     print(idx, score)
     print(df_3.iloc[idx])
-
-# index_bow = SparseMatrixSimilarity(corpus_bow, num_features=len(dictionary))
-# sims_bow = index_bow[query_bow]
 
 
 print("Sorted by bow scores")
