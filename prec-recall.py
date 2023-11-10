@@ -263,6 +263,9 @@ scatter = plt.scatter(tsne_red[:, 0], tsne_red[:, 1], c = col_c )
 handles, _ = scatter.legend_elements(prop='colors')
 labels = ['q1', 'q2', 'q3', 'q4', 'q5', 'q6', 'q7', 'q8', 'q9', 'q10']
 plt.legend(handles, labels, loc='best')
+plt.xlabel("Dimension 1")
+plt.ylabel("Dimension 2")
+
 
 plt.show()
 
@@ -275,5 +278,7 @@ scatter = plt.scatter(tsne_red_doc[:, 0], tsne_red_doc[:, 1], c = col_c )
 handles, _ = scatter.legend_elements(prop='colors')
 labels = ['q1', 'q2', 'q3', 'q4', 'q5', 'q6', 'q7', 'q8', 'q9', 'q10']
 plt.legend(handles, labels, loc='best')
+plt.xlabel("Dimension 1")
+plt.ylabel("Dimension 2")
 
 plt.show()
